@@ -2,11 +2,21 @@ _welcome:
     pattern:  /
     defaults: { _controller: AcmeDemo:Welcome:index }
 
-_demo_secured:
-    resource: "@AcmeDemo/Controller/SecuredController.php"
-    type:     annotation
+#_demo_secured:
+#    resource: "@AcmeDemo/Controller/SecuredController.php"
+#    type:     annotation
 
 _demo:
     resource: "@AcmeDemo/Controller/DemoController.php"
     type:     annotation
     prefix:   /demo
+
+_diakonia:
+    resource: "@RJCDiakonia/Resources/config/routing.yml"
+
+fos_user_security:
+    resource: "@FOSUser/Resources/config/routing/security.xml"
+
+fos_user_user:
+    resource: "@FOSUser/Resources/config/routing/user.xml"
+    prefix: /user

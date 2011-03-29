@@ -1,0 +1,7 @@
+dashboard:
+  pattern:  /dashboard
+  defaults: { _controller:RJCDiakonia:Dashboard:index }
+
+dashboard_calendar:
+  pattern:  /dashboard/calendar
+  defaults: { _controller:RJCDiakonia:Dashboard:calendar }
