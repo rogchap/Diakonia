@@ -9,6 +9,6 @@ class User extends UserBase {
     /** @mongodb:Id(strategy="auto") */
     protected $id;
 
-    /** @mongodb:ReferenceMany(targetDocument="FOS\UserBundle\Document\DefaultGroup") */
+    /** @mongodb:ReferenceMany(targetDocument="RJC\DiakoniaBundle\Document\Group") */
     protected $groups;
 }

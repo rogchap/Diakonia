@@ -87,3 +87,6 @@ fos_user:
     class:
         model:
             user: RJC\DiakoniaBundle\Document\User
+    group:
+        class:
+            model: RJC\DiakoniaBundle\Document\Group
