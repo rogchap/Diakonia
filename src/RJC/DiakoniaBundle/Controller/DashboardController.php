@@ -2,12 +2,10 @@
 
 namespace RJC\DiakoniaBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-class DashboardController extends Controller {
+class DashboardController extends BaseController {
     
     public function indexAction() {
-    
+        
         return $this->render('RJCDiakonia:Dashboard:index.html.twig');
     }
 

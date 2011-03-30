@@ -80,6 +80,10 @@ jms_security_extra:
 knplabs_menu:
     twig: true
 
+#Pagination Configuration
+knplabs_paginator:
+    templating: ~
+
 #User Configuration
 fos_user:
     db_driver: mongodb
