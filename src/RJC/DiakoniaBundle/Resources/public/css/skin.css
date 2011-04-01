@@ -34,6 +34,11 @@ body {
     height:100%;
 }
 
+body.login {
+    background-color: #666;
+    background-image: url(../images/backgrounds/bg-login.png); 
+}
+
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -127,6 +132,96 @@ dl dt {
     margin-bottom: 0;
     }
 
+/* LOGIN HEADER */
+#login-header {
+    padding: 100px 0 0 0;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+#login-header .container {
+    background-image: url(../images/branding/logo-login.png);
+    width:300px;
+    text-align: center; 
+}
+
+#login-container .container {
+    padding: 30px 0;
+}
+
+#login-container .container {
+    width:430px;
+}
+
+#login-container .container .section {
+    background-color: #fff;
+    border-color: #666; 
+}
+
+#login-container .container .section h3 {
+    background-image: url(../images/backgrounds/bg-tabs.png);
+    -moz-border-radius: 6px 6px 0 0 ;
+    -webkit-border-radius: 6px 6px 0 0 ;
+    border-radius: 5px 5px 0 0 ;
+    text-shadow: 0px -1px 0px #000;
+    color:#fff;
+    font-size: 2.1em;
+    font-weight: normal;
+    line-height: 20px;
+    background-color: #666;  
+}
+
+#login-header h1 {
+    line-height:68px;
+    font-size:3.5em;  
+    margin:0;
+    color:#383838;
+    text-shadow: 0px 1px 0px #fff;
+    visibility: hidden; 
+}
+
+#login-container .form-style label {
+    width: 85px;
+}
+
+#login-container .form-style input {
+    width: 240px;
+}
+
+#login-container .form-style .remember {
+    width: 135px;
+    display:inline-block;
+    float:left;
+    padding: 15px 0 0 15px;
+}
+
+#login-container .form-style .remember input {
+    width: 13px;
+    display:inline;  
+}
+
+#login-container .form-style .remember label {
+    float: none; 
+}
+
+#login-container .form-style span.buttons {
+    padding-left: 126px;
+    line-height: 50px; 
+}
+
+#login-container .footer {
+    float:right;
+    font-size: 1.6em;
+}
+
+#login-container .footer ul li {
+    padding: 0 5px;
+    margin-left: 5px;
+    float: left;
+}
+
 /* HEADER */
 #masthead  {
     height:60px;
@@ -139,6 +234,9 @@ dl dt {
 #masthead #logo  {
    float:left;
    width:200px;
+   background-image: url(../images/branding/logo-header.png);
+   background-repeat: no-repeat;
+   background-position: left; 
    } 
 
 #masthead #logo p {
@@ -147,6 +245,7 @@ dl dt {
     margin:0;
     color:#383838;
     text-shadow: 0px 1px 0px #ccc;
+    visibility: hidden;  
     }
 
 #masthead .nav-main {
@@ -411,6 +510,7 @@ dl dt {
     display:block;
     color:#666;
     font-size:1.5em;
+    text-shadow: 0px 1px 0px #fff; 
     border-bottom:1px solid #e3e3e3;
     background-color: #eeeeee;
     background-image: -moz-linear-gradient(top, #eeeeee, #e5e5e5);

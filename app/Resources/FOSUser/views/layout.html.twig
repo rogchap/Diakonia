@@ -16,33 +16,29 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <link rel="apple-touch-icon-precomposed" href="{{ asset('bundles/diakonia/images/apple-touch-icon.png') }}" />
 </head>
-<body>
+<body class="login">
     <div class="wrapper">
-        <div id="masthead">
-            <div class="clearfix header" role="banner">
-                <div id="logo">
-                    <p>Diakonia</p>
-                </div>
-                <div class="nav-main">
-                     {{ menu('main') }}
-                </div>
-                <div class="login-control">
-                    <span class="icon">&nbsp;</span>
-                    <p>Logout</p>
-                </div>
+        <div id="login-header">
+            <div class="container">
+                <h1>Diakonia</h1>
             </div>
-            <!-- end #masthead -->
         </div>
-        <div id="mastheads-seperator"></div>
-        <div id="main" class="clearfix">
-            <div class="nav-primary">
-                {% block nav %}
-                {% endblock %}
+        <div id="login-container">
+            <div class="container">
+                <div class="section">
+                    <h3>Login to Diakonia</h3>
+                    {% block content %}
+                    {% endblock %}
+                </div>
+                <div class="footer">
+                    <ul>
+                        <li><a href="#">Forgot your password?</a></li>
+                        <li><a href="#">Sign Up &rsaquo;&rsaquo;</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="content">
-                {% block content %}
-                {% endblock %}
-            </div>
+        </div>
+            
         </div>
     </div>
 </body>

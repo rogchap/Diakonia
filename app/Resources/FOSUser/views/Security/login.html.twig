@@ -1,0 +1,24 @@
+{% extends "FOSUser::layout.html.twig" %}
+{% block content %}
+<form action="{{ path("_security_check") }}" method="post" class="form-style">
+    
+    <ul>
+        <li>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" class="textfield" />
+        </li>
+        <li>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="_password" class="textfield" />
+        </li>
+    </ul>
+    <div class="remember">
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" class="checkbox" />
+        <label for="remember_me">Remember Me</label>
+    </div>
+
+    <span class="buttons">
+        <button type="submit" name="login" class="button green">Login</button>
+    </span>
+</form>
+{% endblock %}

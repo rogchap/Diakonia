@@ -1,0 +1,28 @@
+<ul>
+    <li>
+        {{ form_label(form.title) }}
+        {{ form_field(form.title, {'class':'textfield'}) }}
+        {{ form_errors(form.title) }}
+    </li>
+    <li>
+        {{ form_label(form.author) }}
+        {{ form_field(form.author, {'class':'textfield'}) }}
+        {{ form_errors(form.author) }}
+    </li>
+    <li>
+        {{ form_label(form.defaultKey, 'Default Key') }}
+        {{ form_field(form.defaultKey, {'class':'choice'}) }}
+        {{ form_errors(form.defaultKey) }}
+    </li>
+    <li>
+        {{ form_label(form.defaultKey, 'Chord Sheet') }}
+        {{ form_field(form.chordSheet, {'class':'large'}) }}
+        {{ form_errors(form.defaultKey) }}
+    </li>
+</ul>
+
+{{ form_hidden(form) }}
+
+<span class="buttons">
+    <button type="submit" class="button green">Save</button>
+</span>

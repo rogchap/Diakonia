@@ -1,0 +1,33 @@
+{% extends 'RJCDiakonia::layout.html.twig' %}
+
+{% block title %}Diakonia - Song List{% endblock %}
+
+{% block nav %} {{ menu('song') }} {% endblock %}
+
+{% block content %}
+
+<div class="wrapper-title">
+    <h1>
+        Edit {{ song.title }}
+    </h1>
+</div>
+
+{% if app.session.hasFlash('message_success') %}
+<div class="message success">
+    <span class="icon">&nbsp;</span><p>{{ app.session.flash('message_success') }}</p>
+</div>
+{% endif %}
+
+<div class="section">
+    <h3>Ammend song details</h3>
+
+    <form method="post" class="form-style">
+        <fieldset>
+
+            {% include 'RJCDiakonia:Song:formfields.html.twig' with {'form':form} %}
+            
+        </fieldset>
+    </form>
+</div>
+
+{% endblock %}

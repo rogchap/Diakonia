@@ -9,3 +9,15 @@ dashboard_calendar:
 people:
    pattern: /people
    defaults: { _controller:RJCDiakonia:People:index }
+
+song:
+   pattern: /song
+   defaults: { _controller:RJCDiakonia:Song:index }
+
+song_create:
+   pattern: /song/create
+   defaults: { _controller:RJCDiakonia:Song:create }
+
+song_edit:
+   pattern: /song/edit/{id}
+   defaults: { _controller:RJCDiakonia:Song:edit }

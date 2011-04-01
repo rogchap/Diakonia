@@ -1,0 +1,27 @@
+{% extends 'RJCDiakonia::layout.html.twig' %}
+
+{% block title %}Diakonia - Add Song to Library{% endblock %}
+
+{% block nav %} {{ menu('song') }} {% endblock %}
+
+{% block content %}
+
+<div class="wrapper-title">
+    <h1>
+        Add Song to Library
+    </h1>
+</div>
+
+<div class="section">
+    <h3>Enter song details</h3>
+
+    <form method="post" class="form-style">
+        <fieldset>
+
+            {% include 'RJCDiakonia:Song:formfields.html.twig' with {'form':form} %}
+            
+        </fieldset>
+    </form>
+</div>
+
+{% endblock %}

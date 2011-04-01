@@ -11,6 +11,9 @@ class Transposer {
         return $param;
     }
 
+    /**
+     * C = 0, C#=1, D=2 and so on
+     */
     public function transpose($key, $newKey, $song, $minor=false, $type='#'){
         $search = '`\b[A-G]{1,1}(#|b)?(m7|9|maj7|7|m|sus2|sus4|5)?(\/[A-G](#)?(b{1,1})?)?`';
         \preg_match_all($search, $song, $song_chords);

@@ -16,7 +16,7 @@ class MainMenu extends Menu {
         $this->addChild('Dashboard', $router->generate('dashboard'));
         $this->addChild('Services', 'http://www.stormid.com');
         $this->addChild('People', $router->generate('people'));
-        $this->addChild('Songs', 'http://www.stormid.com');
+        $this->addChild('Songs', $router->generate('song'));
 
         $this->setIsMaster(true);
     }

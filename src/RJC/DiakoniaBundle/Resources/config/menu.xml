@@ -6,6 +6,7 @@
     <parameters>
         <parameter key="menu.main.class">RJC\DiakoniaBundle\Menu\MainMenu</parameter>
         <parameter key="menu.dashboard.class">RJC\DiakoniaBundle\Menu\DashboardMenu</parameter>
+         <parameter key="menu.song.class">RJC\DiakoniaBundle\Menu\SongMenu</parameter>
     </parameters>
 
     <services>
@@ -16,6 +17,11 @@
         </service>
         <service id="menu.dashboard" class="%menu.dashboard.class%" scope="request">
             <tag name="menu" alias="dashboard" />
+            <argument type="service" id="request" />
+            <argument type="service" id="router" />
+        </service>
+        <service id="menu.song" class="%menu.song.class%" scope="request">
+            <tag name="menu" alias="song" />
             <argument type="service" id="request" />
             <argument type="service" id="router" />
         </service>

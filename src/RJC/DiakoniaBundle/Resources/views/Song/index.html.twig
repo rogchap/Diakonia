@@ -1,9 +1,15 @@
 {% extends 'RJCDiakonia::layout.html.twig' %}
 
-{% block title %}Diakonia - Song List{% endblock %}
+{% block title %}Diakonia - Song Library{% endblock %}
 
-{% block nav %}  {% endblock %}
+{% block nav %} {{ menu('song') }} {% endblock %}
 
 {% block content %}
+
+<div class="wrapper-title">
+    <h1>
+        Song Library
+    </h1>
+</div>
 
 {% endblock %}
