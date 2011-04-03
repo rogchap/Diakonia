@@ -9,7 +9,19 @@ use \RJC\DiakoniaBundle\Form\SongForm;
 class SongController extends BaseController {
 
     public function indexAction() {
-        return $this->render('RJCDiakonia:Song:index.html.twig');
+
+        $dm = $this->getDocumentManager();
+        $query = $dm->createQueryBuilder('RJCDiakonia:Song')->getQuery();
+
+        $adapter = $this->get('knplabs_paginator.adapter');
+        $adapter->setQuery($query);
+
+        $paginator = new \Zend\Paginator\Paginator($adapter);  
+        $paginator->setCurrentPageNumber($this->getRequest()->query->get('page', 1));
+        $paginator->setItemCountPerPage(20);
+        $paginator->setPageRange(5);
+
+        return $this->render('RJCDiakonia:Song:index.html.twig', array('paginator' => $paginator));
     }
 
     public function createAction() {
@@ -42,7 +54,25 @@ class SongController extends BaseController {
 
         $form->bind($this->get('request'), $song);
 
+        if ($form->isValid()) {
+
+            $dm = $this->getDocumentManager();
+            $dm->persist($song);
+            $dm->flush();
+
+            $session = $this->getSession();
+            $session->setFlash('message_success', 'Song was succesfully saved');
+        }
+
         return $this->render('RJCDiakonia:Song:edit.html.twig', array('song' => $song, 'form' => $form));
+    }
+
+    public function viewAction($id) {
+
+        $dm = $this->getDocumentManager();
+        $song = $dm->find('RJCDiakonia:Song', $id);
+
+        return $this->render('RJCDiakonia:Song:view.html.twig', array('song' => $song));
     }
 
 }

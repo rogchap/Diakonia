@@ -13,8 +13,7 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Zend_Loader
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
@@ -22,23 +21,33 @@
 /**
  * @namespace
  */
-namespace Zend\Paginator;
+namespace Zend\Loader;
 
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
+ * Plugin class loader interface
  *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Zend_Loader
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+interface PrefixPathMapper extends ShortNameLocater
 {
     /**
-     * Return a fully configured Paginator Adapter from this method.
+     * Add prefixed paths to the registry of paths
      *
-     * @return Zend_Paginator_Adapter_Interface
+     * @param string $prefix
+     * @param string $path
+     * @return \Zend\Loader\PrefixPathMapper
      */
-    public function getPaginatorAdapter();
+    public function addPrefixPath($prefix, $path);
+
+    /**
+     * Remove a prefix (or prefixed-path) from the registry
+     *
+     * @param string $prefix
+     * @param string $path
+     * @return \Zend\Loader\PrefixPathMapper
+     */
+    public function removePrefixPath($prefix, $path);
 }

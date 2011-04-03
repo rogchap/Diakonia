@@ -28,8 +28,9 @@ security:
                 login_path:     /login
                 use_forward:    false
                 check_path:     /login_check
+                default_target_path: /dashboard
                 failure_path:   null
-            logout:       true
+            logout: { path: /logout, target: /login }
             anonymous:    true
 
     access_control:
@@ -49,6 +50,7 @@ security:
         - { path: ^/user/reset-password/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         # Secured part of the site (all site here and an admin part for admin users)
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/.*, role: ROLE_USER }
 
     role_hierarchy:

@@ -13,7 +13,7 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Paginator
+ * @package    Paginator
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
@@ -22,26 +22,23 @@
  * @namespace
  */
 namespace Zend\Paginator\Adapter;
-
-use Zend\Paginator\Adapter;
+      use Zend\Paginator\Adapter;
 
 /**
  * @uses       \Zend\Paginator\Adapter
- * @uses       \Zend\Paginator\Adapter\Exception
- * @uses       \Zend\Paginator\SerializableLimitIterator
  * @category   Zend
- * @package    Zend_Paginator
+ * @package    Paginator
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Iterator implements Adapter
+class ArrayAdapter implements Adapter
 {
     /**
-     * Iterator which implements Countable
+     * ArrayAdapter
      *
-     * @var Iterator
+     * @var array
      */
-    protected $_iterator = null;
+    protected $_array = null;
 
     /**
      * Item count
@@ -53,36 +50,28 @@ class Iterator implements Adapter
     /**
      * Constructor.
      *
-     * @param  Iterator $iterator Iterator to paginate
-     * @throws \Zend\Paginator\Adapter\Exception
+     * @param array $array ArrayAdapter to paginate
      */
-    public function __construct(\Iterator $iterator)
+    public function __construct(array $array)
     {
-        if (!$iterator instanceof \Countable) {
-            throw new Exception\InvalidArgumentException('Iterator must implement Countable');
-        }
-
-        $this->_iterator = $iterator;
-        $this->_count = count($iterator);
+        $this->_array = $array;
+        $this->_count = count($array);
     }
 
     /**
-     * Returns an iterator of items for a page, or an empty array.
+     * Returns an array of items for a page.
      *
      * @param  integer $offset Page offset
      * @param  integer $itemCountPerPage Number of items per page
-     * @return LimitIterator|array
+     * @return array
      */
     public function getItems($offset, $itemCountPerPage)
     {
-        if ($this->_count == 0) {
-            return array();
-        }
-        return new \Zend\Paginator\SerializableLimitIterator($this->_iterator, $offset, $itemCountPerPage);
+        return array_slice($this->_array, $offset, $itemCountPerPage);
     }
 
     /**
-     * Returns the total number of rows in the collection.
+     * Returns the total number of rows in the array.
      *
      * @return integer
      */

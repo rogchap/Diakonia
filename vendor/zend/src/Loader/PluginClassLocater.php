@@ -13,32 +13,49 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Zend_Loader
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id$
  */
 
 /**
  * @namespace
  */
-namespace Zend\Paginator;
+namespace Zend\Loader;
 
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
+ * Plugin class locater interface
  *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Zend_Loader
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+interface PluginClassLocater extends ShortNameLocater, \IteratorAggregate
 {
     /**
-     * Return a fully configured Paginator Adapter from this method.
-     *
-     * @return Zend_Paginator_Adapter_Interface
+     * Register a class to a given short name
+     * 
+     * @param  string $shortName 
+     * @param  string $className 
+     * @return PluginClassLocater
      */
-    public function getPaginatorAdapter();
+    public function registerPlugin($shortName, $className);
+
+    /**
+     * Unregister a short name lookup
+     * 
+     * @param mixed $shortName 
+     * @return void
+     */
+    public function unregisterPlugin($shortName);
+
+    /**
+     * Get a list of all registered plugins
+     * 
+     * @return array|Traversable
+     */
+    public function getRegisteredPlugins();
 }
+

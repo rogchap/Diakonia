@@ -14,31 +14,32 @@
  *
  * @category   Zend
  * @package    Zend_Paginator
- * @subpackage Adapter
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/**
- * @namespace
- */
 namespace Zend\Paginator;
 
+use Zend\Loader\PluginClassLoader;
+
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
+ * Plugin Class Loader implementation for pagination adapters.
  *
  * @category   Zend
  * @package    Zend_Paginator
- * @subpackage Adapter
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+class AdapterLoader extends PluginClassLoader
 {
     /**
-     * Return a fully configured Paginator Adapter from this method.
-     *
-     * @return Zend_Paginator_Adapter_Interface
+     * @var array Pre-aliased adapters 
      */
-    public function getPaginatorAdapter();
+    protected $plugins = array(
+        'array'           => 'Zend\Paginator\Adapter\ArrayAdapter',
+        'db_select'       => 'Zend\Paginator\Adapter\DbSelect',
+        'db_table_select' => 'Zend\Paginator\Adapter\DbTableSelect',
+        'iterator'        => 'Zend\Paginator\Adapter\Iterator',
+        'null'            => 'Zend\Paginator\Adapter\Null',
+    );
 }

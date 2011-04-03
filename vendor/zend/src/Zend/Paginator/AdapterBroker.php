@@ -14,31 +14,41 @@
  *
  * @category   Zend
  * @package    Zend_Paginator
- * @subpackage Adapter
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/**
- * @namespace
- */
 namespace Zend\Paginator;
 
+use Zend\Loader\PluginBroker;
+
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
+ * Broker for pagination adapter instances
  *
  * @category   Zend
  * @package    Zend_Paginator
- * @subpackage Adapter
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+class AdapterBroker extends PluginBroker
 {
     /**
-     * Return a fully configured Paginator Adapter from this method.
-     *
-     * @return Zend_Paginator_Adapter_Interface
+     * @var string Default plugin loading strategy
      */
-    public function getPaginatorAdapter();
+    protected $defaultClassLoader = 'Zend\Paginator\AdapterLoader';
+
+    /**
+     * Determine if we have a valid adapter
+     * 
+     * @param  mixed $plugin 
+     * @return true
+     * @throws Exception
+     */
+    protected function validatePlugin($plugin)
+    {
+        if (!$plugin instanceof Adapter) {
+            throw new Exception('Pagination adapters must implement Zend\Paginator\Adapter');
+        }
+        return true;
+    }
 }

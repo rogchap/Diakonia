@@ -1933,7 +1933,7 @@ class UniversalClassLoader
             require $file;
         }
     }
-    protected function findFile($class)
+    public function findFile($class)
     {
         if ('\\' == $class[0]) {
             $class = substr($class, 1);
@@ -1998,6 +1998,15 @@ class MapFileClassLoader
         }
         if (isset($this->map[$class])) {
             require $this->map[$class];
+        }
+    }
+    public function findFile($class)
+    {
+        if ('\\' === $class[0]) {
+            $class = substr($class, 1);
+        }
+        if (isset($this->map[$class])) {
+            return $this->map[$class];
         }
     }
 }

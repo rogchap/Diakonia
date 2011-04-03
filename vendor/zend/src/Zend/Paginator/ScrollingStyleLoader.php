@@ -14,31 +14,31 @@
  *
  * @category   Zend
  * @package    Zend_Paginator
- * @subpackage Adapter
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/**
- * @namespace
- */
 namespace Zend\Paginator;
 
+use Zend\Loader\PluginClassLoader;
+
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
+ * Plugin Class Loader implementation for scrolling style adapters.
  *
  * @category   Zend
  * @package    Zend_Paginator
- * @subpackage Adapter
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+class ScrollingStyleLoader extends PluginClassLoader
 {
     /**
-     * Return a fully configured Paginator Adapter from this method.
-     *
-     * @return Zend_Paginator_Adapter_Interface
+     * @var array Pre-aliased adapters 
      */
-    public function getPaginatorAdapter();
+    protected $plugins = array(
+        'all'     => 'Zend\Paginator\ScrollingStyle\All',
+        'elastic' => 'Zend\Paginator\ScrollingStyle\Elastic',
+        'jumping' => 'Zend\Paginator\ScrollingStyle\Jumping',
+        'sliding' => 'Zend\Paginator\ScrollingStyle\Sliding',
+    );
 }

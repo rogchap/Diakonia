@@ -13,32 +13,25 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Zend_Loader
+ * @subpackage Exception
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/**
- * @namespace
- */
-namespace Zend\Paginator;
+namespace Zend\Loader\Exception;
+require_once __DIR__ . '/../Exception.php';
+use Zend\Loader\Exception;
 
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
- *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Zend_Loader
+ * @subpackage Exception
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+class InvalidPathException
+    extends \Exception
+    implements Exception
 {
-    /**
-     * Return a fully configured Paginator Adapter from this method.
-     *
-     * @return Zend_Paginator_Adapter_Interface
-     */
-    public function getPaginatorAdapter();
 }

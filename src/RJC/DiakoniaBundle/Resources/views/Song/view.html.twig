@@ -1,0 +1,23 @@
+{% extends 'RJCDiakonia::layout.html.twig' %}
+
+{% block title %}Diakonia - {{ song.title }}{% endblock %}
+
+{% block nav %} {{ menu('song') }} {% endblock %}
+
+{% block content %}
+
+<div class="wrapper-title">
+    <h1>
+        {{ song.title }}
+    </h1>
+    <h2>
+        by {{ song.author }}
+    </h2>
+</div>
+
+<div class="section">
+    <h3>Key: {{ song.defaultKey }}</h3>
+    <pre>{{ song.chordSheet }}</pre>
+</div>
+
+{% endblock %}

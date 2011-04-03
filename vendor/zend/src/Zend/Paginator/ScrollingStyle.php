@@ -14,7 +14,6 @@
  *
  * @category   Zend
  * @package    Zend_Paginator
- * @subpackage Adapter
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
@@ -25,20 +24,19 @@
 namespace Zend\Paginator;
 
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
- *
  * @category   Zend
  * @package    Zend_Paginator
- * @subpackage Adapter
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+interface ScrollingStyle
 {
     /**
-     * Return a fully configured Paginator Adapter from this method.
+     * Returns an array of "local" pages given a page number and range.
      *
-     * @return Zend_Paginator_Adapter_Interface
+     * @param  \Zend\Paginator\Paginator $paginator
+     * @param  integer $pageRange (Optional) Page range
+     * @return array
      */
-    public function getPaginatorAdapter();
+    public function getPages(\Zend\Paginator\Paginator $paginator, $pageRange = null);
 }

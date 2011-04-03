@@ -13,8 +13,7 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Zend_Loader
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
@@ -22,23 +21,39 @@
 /**
  * @namespace
  */
-namespace Zend\Paginator;
+namespace Zend\Loader;
 
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
+ * Short name locater interface
  *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Zend_Loader
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+interface ShortNameLocater
 {
     /**
-     * Return a fully configured Paginator Adapter from this method.
+     * Whether or not a Helper by a specific name
      *
-     * @return Zend_Paginator_Adapter_Interface
+     * @param  string $name
+     * @return bool
      */
-    public function getPaginatorAdapter();
+    public function isLoaded($name);
+
+    /**
+     * Return full class name for a named helper
+     *
+     * @param  string $name
+     * @return string
+     */
+    public function getClassName($name);
+
+    /**
+     * Load a helper via the name provided
+     *
+     * @param  string $name
+     * @return string
+     */
+    public function load($name);
 }

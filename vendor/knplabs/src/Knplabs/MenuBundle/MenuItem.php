@@ -980,7 +980,7 @@ class MenuItem implements \ArrayAccess, \Countable, \IteratorAggregate
             if($this->isMaster) {
                $this->isCurrent = null !== $currentUri && (strpos($currentUri,$this->getUri()) === 0);
             } else {
-                $this->isCurrent = null !== $currentUri && ($this->getUri() === $currentUri);
+                $this->isCurrent = null !== $currentUri && (strtok($this->getUri(),'?') === strtok($currentUri,'?'));
             }
         }
 

@@ -28,7 +28,14 @@
                 </div>
                 <div class="login-control">
                     <span class="icon">&nbsp;</span>
-                    <p>Logout</p>
+                    <p>
+                        <a href="{{ path('fos_user_user_show', {'username': app.user.getUsername}) }}">
+                        {% trans 'Logged in as %username%' with { '%username%': app.user.getUsername() } from 'FOSUserBundle' %}
+                        </a> |
+                        <a href="{{ path('_security_logout') }}">
+                        {% trans 'Logout' from 'FOSUserBundle' %}
+                        </a>
+                    </p>
                 </div>
             </div>
             <!-- end #masthead -->

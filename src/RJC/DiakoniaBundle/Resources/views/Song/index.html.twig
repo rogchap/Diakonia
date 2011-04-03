@@ -12,4 +12,28 @@
     </h1>
 </div>
 
+<table class="list-table">
+    <tr>
+        <th>{{ paginator_sort('Title', 'title')|raw }}</th>
+        <th>{{ paginator_sort('Author', 'author')|raw }}</th>
+        <th>{{ paginator_sort('Default Key', 'defaultKey')|raw }}</th>
+    </tr>
+    {% for song in paginator %}
+    <tr {% if loop.index is even %}class="color"{% endif %}>
+        <td>
+            <div><a href="{{ path('song_view', {'id':song.getId()}) }}" class="name">{{ song.getTitle() }}</a></div>
+            <div class="actions"><a href="{{ path('song_view', {'id':song.getId()}) }}">View</a><a href="#">Download Chord Sheet</a><a href="#">Download Song Sheet</a><a href="#">Download ProPresenter 4 File</a><a href="{{ path('song_edit', {'id':song.getId()}) }}">Edit</a></div>
+        </td>
+        <td>{{ song.getAuthor() }}</td>
+        <td>{{ song.getDefaultKey() }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div id="paging">
+    <p>
+        {{ paginator_render(paginator)|raw }}
+    </p>
+</div>
+
 {% endblock %}

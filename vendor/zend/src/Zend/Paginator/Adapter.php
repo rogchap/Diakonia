@@ -13,8 +13,7 @@
  * to license@zend.com so we can send you a copy immediately.
  *
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Paginator
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
@@ -23,22 +22,25 @@
  * @namespace
  */
 namespace Zend\Paginator;
+      use \Countable;
 
 /**
- * Interface that aggregates a Zend_Paginator_Adapter_Abstract just like IteratorAggregate does for Iterators.
+ * Interface for pagination adapters.
  *
+ * @uses       Countable
  * @category   Zend
- * @package    Zend_Paginator
- * @subpackage Adapter
+ * @package    Paginator
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-interface AdapterAggregate
+interface Adapter extends Countable
 {
     /**
-     * Return a fully configured Paginator Adapter from this method.
+     * Returns an collection of items for a page.
      *
-     * @return Zend_Paginator_Adapter_Interface
+     * @param  integer $offset Page offset
+     * @param  integer $itemCountPerPage Number of items per page
+     * @return array
      */
-    public function getPaginatorAdapter();
+    public function getItems($offset, $itemCountPerPage);
 }
