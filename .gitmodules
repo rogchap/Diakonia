@@ -13,3 +13,21 @@
 [submodule "vendor/fos/src/FOS/UserBundle"]
 	path = vendor/fos/src/FOS/UserBundle
 	url = https://github.com/FriendsOfSymfony/UserBundle.git
+[submodule "vendor/redpanda/src/RedPanda"]
+	path = vendor/redpanda/src/RedPanda
+	url = https://github.com/redpanda/BreadcrumbBundle.git
+[submodule "vendor/redpanda/src/RedPanda/BreadcrumbBundle"]
+	path = vendor/redpanda/src/RedPanda/BreadcrumbBundle
+	url = https://github.com/redpanda/BreadcrumbBundle.git
+[submodule "vendor/knplabs/src/Knplabs/snappy"]
+	path = vendor/knplabs/src/Knplabs/snappy
+	url = git@github.com:knplabs/snappy.git
+[submodule "vendor/knplabs/snappy"]
+	path = vendor/knplabs/snappy
+	url = git@github.com:knplabs/snappy.git
+[submodule "vendor/knplabs/src/Knplabs/SnappyBundle"]
+	path = vendor/knplabs/src/Knplabs/SnappyBundle
+	url = https://github.com/knplabs/SnappyBundle.git
+[submodule "vendor/bundles/Knplabs/Bundle/SnappyBundle"]
+	path = vendor/bundles/Knplabs/Bundle/SnappyBundle
+	url = https://github.com/knplabs/SnappyBundle.git

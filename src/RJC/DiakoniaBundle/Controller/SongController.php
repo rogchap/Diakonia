@@ -4,7 +4,8 @@ namespace RJC\DiakoniaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use RJC\DiakoniaBundle\Document\Song;
-use \RJC\DiakoniaBundle\Form\SongForm;
+use RJC\DiakoniaBundle\Form\SongForm;
+use RJC\DiakoniaBundle\Code\StaticHelper;
 
 class SongController extends BaseController {
 
@@ -73,6 +74,27 @@ class SongController extends BaseController {
         $song = $dm->find('RJCDiakonia:Song', $id);
 
         return $this->render('RJCDiakonia:Song:view.html.twig', array('song' => $song));
+    }
+
+    public function pdfAction($id) {
+        
+        $dm = $this->getDocumentManager();
+        $song = $dm->find('RJCDiakonia:Song', $id);
+
+        if($this->getRequest()->query->get('test')) {
+            return $this->render('RJCDiakonia:Song:pdfview.html.twig', array('song' => $song, 'user' => $this->getCurrentUser(), 'date' => \date('Y-m-d H:i:s')));
+        }
+        
+        $html = $this->container->get('templating')->render('RJCDiakonia:Song:pdfview.html.twig',  array('song' => $song, 'user' => $this->getCurrentUser(), 'date' => \date('Y-m-d H:i:s')));
+
+        return new \Symfony\Component\HttpFoundation\Response(
+            $this->get('knplabs_snappy_pdf')->get($html),
+            200,
+            array(
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => \sprintf('filename="%s"', StaticHelper::sanitize_filename($song->getTitle(), 'pdf')),
+            )
+        );
     }
 
 }

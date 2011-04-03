@@ -96,3 +96,10 @@ fos_user:
     group:
         class:
             model: RJC\DiakoniaBundle\Document\Group
+
+#Snappy Configuration
+knplabs_snappy:
+    pdf: ~
+
+parameters:
+    knplabs.snappy.pdf.executable: /Development/Diakonia/bin/wkhtmltopdf

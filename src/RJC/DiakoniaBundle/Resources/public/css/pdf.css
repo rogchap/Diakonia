@@ -1,0 +1,48 @@
+body {
+    font-family: Arial,Clean,Sans-serif;
+}
+
+h1, h2, h3, h4 {
+	margin:1em 0;
+	text-rendering: optimizeLegibility;
+    }
+
+h1, h2, h3 {
+	font-weight:bold;
+    }
+
+h1 {
+	font-size:2.7em;
+    }
+
+h2 {
+	font-size: 1.9em;
+    } 
+
+h3 {
+	font-size:1.5em;
+    }
+ 
+
+.container #chords, .container #header {
+    padding: 15px 20px; 
+    
+}
+
+.container #header {
+   background-color: #ccc;
+}
+
+.container #header span {
+    display: block;
+    text-align: right;
+    line-height: 20px; 
+}
+
+#chords pre { 
+    font-family: Arial,Clean,Sans-serif; 
+    font-size:1.5em;
+    line-height: 22px;
+} 
+
+

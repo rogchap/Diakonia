@@ -619,7 +619,11 @@ table tr td {
 .list-table tr th {
     padding: 10px;
     background-image:none;
-    background-color:#fff;
+    background-color: #ccc;
+    background-image: -moz-linear-gradient(top, #ccc, #c5c5c5);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ccc),color-stop(1, #c5c5c5));
+    background-image: -webkit-linear-gradient(#ccc, #c5c5c5);
+    background-image: linear-gradient(top, #ccc, #c5c5c5);
     color:#888;
     }
 

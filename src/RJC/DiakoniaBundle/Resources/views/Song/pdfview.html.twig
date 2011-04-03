@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="http://diakonia.local{{ asset('bundles/diakonia/css/base.css') }}" />
+    <link rel="stylesheet" type="text/css" href="http://diakonia.local{{ asset('bundles/diakonia/css/pdf.css') }}" />
+    
+    <title>{{ song.title }}</title>
+
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <h1>{{ song.title }}</h1>
+            <h2>by {{ song.author }}</h2>
+            <h3>Key: {{ song.defaultKey }}</h2>
+            <span>{{user.username}}</span>
+            <span>{{date}}</span>
+        </div>
+        <div id="chords">
+            <pre>{{ song.chordSheet }}</pre>
+        </div>
+    </div>
+</body>

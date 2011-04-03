@@ -47,4 +47,8 @@ abstract class BaseController extends Controller {
         }
         return $this->dm;
     }
+
+    public function getCurrentUser() {
+        return $this->get('security.context')->getToken()->getUser();
+    }
 }

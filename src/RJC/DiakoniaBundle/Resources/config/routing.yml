@@ -25,3 +25,7 @@ song_edit:
 song_view:
    pattern: /song/view/{id}
    defaults: { _controller:RJCDiakonia:Song:view }
+
+song_pdf:
+   pattern: /song/pdf/{id}
+   defaults: { _controller:RJCDiakonia:Song:pdf }
