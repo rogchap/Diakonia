@@ -34,3 +34,6 @@
 [submodule "vendor/assetic"]
 	path = vendor/assetic
 	url = git://github.com/kriswallsmith/assetic.git
+[submodule "vendor/symfony"]
+	path = vendor/symfony
+	url = git://github.com/symfony/symfony.git
