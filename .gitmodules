@@ -58,3 +58,6 @@
 [submodule "vendor/bundles/Sensio/Bundle/FrameworkExtraBundle"]
 	path = vendor/bundles/Sensio/Bundle/FrameworkExtraBundle
 	url = git://github.com/sensio/SensioFrameworkExtraBundle.git
+[submodule "vendor/bundles/JMS/SecurityExtraBundle"]
+	path = vendor/bundles/JMS/SecurityExtraBundle
+	url = git://github.com/schmittjoh/SecurityExtraBundle.git
