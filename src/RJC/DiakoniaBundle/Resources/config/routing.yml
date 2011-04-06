@@ -1,31 +1,31 @@
 dashboard:
   pattern:  /dashboard
-  defaults: { _controller:RJCDiakonia:Dashboard:index }
+  defaults: { _controller:RJCDiakoniaBundle:Dashboard:index }
 
 dashboard_calendar:
   pattern:  /dashboard/calendar
-  defaults: { _controller:RJCDiakonia:Dashboard:calendar }
+  defaults: { _controller:RJCDiakoniaBundle:Dashboard:calendar }
 
 people:
    pattern: /people
-   defaults: { _controller:RJCDiakonia:People:index }
+   defaults: { _controller:RJCDiakoniaBundle:People:index }
 
 song:
    pattern: /song
-   defaults: { _controller:RJCDiakonia:Song:index }
+   defaults: { _controller:RJCDiakoniaBundle:Song:index }
 
 song_create:
    pattern: /song/create
-   defaults: { _controller:RJCDiakonia:Song:create }
+   defaults: { _controller:RJCDiakoniaBundle:Song:create }
 
 song_edit:
    pattern: /song/edit/{id}
-   defaults: { _controller:RJCDiakonia:Song:edit }
+   defaults: { _controller:RJCDiakoniaBundle:Song:edit }
 
 song_view:
    pattern: /song/view/{id}
-   defaults: { _controller:RJCDiakonia:Song:view }
+   defaults: { _controller:RJCDiakoniaBundle:Song:view }
 
 song_pdf:
    pattern: /song/pdf/{id}
-   defaults: { _controller:RJCDiakonia:Song:pdf }
+   defaults: { _controller:RJCDiakoniaBundle:Song:pdf }

@@ -6,12 +6,12 @@ class DashboardController extends BaseController {
     
     public function indexAction() {
         
-        return $this->render('RJCDiakonia:Dashboard:index.html.twig');
+        return $this->render('RJCDiakoniaBundle:Dashboard:index.html.twig');
     }
 
     public function calendarAction() {
 
-        return $this->render('RJCDiakonia:Dashboard:index.html.twig');
+        return $this->render('RJCDiakoniaBundle:Dashboard:index.html.twig');
     }
 
 

@@ -12,7 +12,7 @@ class SongController extends BaseController {
     public function indexAction() {
 
         $dm = $this->getDocumentManager();
-        $query = $dm->createQueryBuilder('RJCDiakonia:Song')->getQuery();
+        $query = $dm->createQueryBuilder('RJCDiakoniaBundle:Song')->getQuery();
 
         $adapter = $this->get('knplabs_paginator.adapter');
         $adapter->setQuery($query);
@@ -22,7 +22,7 @@ class SongController extends BaseController {
         $paginator->setItemCountPerPage(20);
         $paginator->setPageRange(5);
 
-        return $this->render('RJCDiakonia:Song:index.html.twig', array('paginator' => $paginator));
+        return $this->render('RJCDiakoniaBundle:Song:index.html.twig', array('paginator' => $paginator));
     }
 
     public function createAction() {
@@ -43,13 +43,13 @@ class SongController extends BaseController {
             return $this->redirect($this->generateUrl('song_edit', array('id' => $song->getId())));
         }
 
-        return $this->render('RJCDiakonia:Song:create.html.twig', array('form' => $form));
+        return $this->render('RJCDiakoniaBundle:Song:create.html.twig', array('form' => $form));
     }
 
     public function editAction($id) {
 
         $dm = $this->getDocumentManager();
-        $song = $dm->find('RJCDiakonia:Song', $id);
+        $song = $dm->find('RJCDiakoniaBundle:Song', $id);
 
         $form = SongForm::create($this->get('form.context'), 'song');
 
@@ -65,27 +65,27 @@ class SongController extends BaseController {
             $session->setFlash('message_success', 'Song was succesfully saved');
         }
 
-        return $this->render('RJCDiakonia:Song:edit.html.twig', array('song' => $song, 'form' => $form));
+        return $this->render('RJCDiakoniaBundle:Song:edit.html.twig', array('song' => $song, 'form' => $form));
     }
 
     public function viewAction($id) {
 
         $dm = $this->getDocumentManager();
-        $song = $dm->find('RJCDiakonia:Song', $id);
+        $song = $dm->find('RJCDiakoniaBundle:Song', $id);
 
-        return $this->render('RJCDiakonia:Song:view.html.twig', array('song' => $song));
+        return $this->render('RJCDiakoniaBundle:Song:view.html.twig', array('song' => $song));
     }
 
     public function pdfAction($id) {
         
         $dm = $this->getDocumentManager();
-        $song = $dm->find('RJCDiakonia:Song', $id);
+        $song = $dm->find('RJCDiakoniaBundle:Song', $id);
 
         if($this->getRequest()->query->get('test')) {
-            return $this->render('RJCDiakonia:Song:pdfview.html.twig', array('song' => $song, 'user' => $this->getCurrentUser(), 'date' => \date('Y-m-d H:i:s')));
+            return $this->render('RJCDiakoniaBundle:Song:pdfview.html.twig', array('song' => $song, 'user' => $this->getCurrentUser(), 'date' => \date('Y-m-d H:i:s')));
         }
         
-        $html = $this->container->get('templating')->render('RJCDiakonia:Song:pdfview.html.twig',  array('song' => $song, 'user' => $this->getCurrentUser(), 'date' => \date('Y-m-d H:i:s')));
+        $html = $this->container->get('templating')->render('RJCDiakoniaBundle:Song:pdfview.html.twig',  array('song' => $song, 'user' => $this->getCurrentUser(), 'date' => \date('Y-m-d H:i:s')));
 
         return new \Symfony\Component\HttpFoundation\Response(
             $this->get('knplabs_snappy_pdf')->get($html),

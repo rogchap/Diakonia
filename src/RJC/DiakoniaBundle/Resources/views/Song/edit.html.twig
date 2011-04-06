@@ -1,4 +1,4 @@
-{% extends 'RJCDiakonia::layout.html.twig' %}
+{% extends 'RJCDiakoniaBundle::layout.html.twig' %}
 
 {% block title %}Diakonia - Song List{% endblock %}
 
@@ -24,7 +24,7 @@
     <form method="post" class="form-style">
         <fieldset>
 
-            {% include 'RJCDiakonia:Song:formfields.html.twig' with {'form':form} %}
+            {% include 'RJCDiakoniaBundle:Song:formfields.html.twig' with {'form':form} %}
             
         </fieldset>
     </form>

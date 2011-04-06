@@ -7,6 +7,6 @@ class PeopleController extends BaseController {
 
     public function indexAction() {
 
-        return $this->render('RJCDiakonia:People:index.html.twig');
+        return $this->render('RJCDiakoniaBundle:People:index.html.twig');
     }
 }
