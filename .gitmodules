@@ -31,3 +31,6 @@
 [submodule "vendor/bundles/Knplabs/Bundle/SnappyBundle"]
 	path = vendor/bundles/Knplabs/Bundle/SnappyBundle
 	url = https://github.com/knplabs/SnappyBundle.git
+[submodule "vendor/assetic"]
+	path = vendor/assetic
+	url = git://github.com/kriswallsmith/assetic.git
