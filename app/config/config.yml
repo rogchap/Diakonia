@@ -1,7 +1,7 @@
 imports:
     - { resource: parameters.ini }
     - { resource: security.yml }
-    - { resource: "@RJCDiakonia/Resources/config/menu.xml" }
+    - { resource: "@RJCDiakoniaBundle/Resources/config/menu.xml" }
 
 framework:
     charset:       UTF-8
@@ -22,7 +22,7 @@ twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
     form:
-        resources: [RJCDiakonia::form.html.twig]
+        resources: [RJCDiakoniaBundle::form.html.twig]
 
 # Assetic Configuration
 assetic:

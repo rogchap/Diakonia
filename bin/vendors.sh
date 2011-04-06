@@ -43,19 +43,19 @@ install_git()
 }
 
 # Assetic
-install_git assetic git://github.com/kriswallsmith/assetic.git #v1.0.0alpha1
+install_git assetic git://github.com/kriswallsmith/assetic.git v1.0.0alpha1
 
 # Symfony
-install_git symfony git://github.com/symfony/symfony.git #v$VERSION
+install_git symfony git://github.com/symfony/symfony.git $VERSION
 
 # Update the bootstrap files
 $DIR/bin/build_bootstrap.php
 
 # Doctrine ORM
-install_git doctrine git://github.com/doctrine/doctrine2.git 2.0.3
+install_git doctrine git://github.com/doctrine/doctrine2.git 2.0.2
 
 # Doctrine DBAL
-install_git doctrine-dbal git://github.com/doctrine/dbal.git 2.0.3
+install_git doctrine-dbal git://github.com/doctrine/dbal.git 2.0.2
 
 # Doctrine Common
 install_git doctrine-common git://github.com/doctrine/common.git 2.0.1
@@ -64,21 +64,19 @@ install_git doctrine-common git://github.com/doctrine/common.git 2.0.1
 install_git swiftmailer git://github.com/swiftmailer/swiftmailer.git origin/4.1
 
 # Twig
-install_git twig git://github.com/fabpot/Twig.git v1.0.0
+install_git twig git://github.com/fabpot/Twig.git
 
 # Twig Extensions
 install_git twig-extensions git://github.com/fabpot/Twig-extensions.git
 
-# Zend Framework Log
-mkdir -p zend-log/Zend
-cd zend-log/Zend
-install_git Log git://github.com/symfony/zend-log.git
+# Monolog
+install_git monolog git://github.com/Seldaek/monolog.git
 cd ../..
 
-# SensioFrameworkExtraBundle
+# FrameworkExtraBundle
 mkdir -p bundles/Sensio/Bundle
 cd bundles/Sensio/Bundle
-install_git FrameworkExtraBundle git://github.com/sensio/SensioFrameworkExtraBundle.git
+install_git FrameworkExtraBundle git://github.com/sensio/FrameworkExtraBundle.git
 cd ../../..
 
 # SecurityExtraBundle
