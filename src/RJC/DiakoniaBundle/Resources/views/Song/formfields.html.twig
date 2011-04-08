@@ -10,6 +10,11 @@
         {{ form_errors(form.author) }}
     </li>
     <li>
+        {{ form_label(form.copyright) }}
+        {{ form_field(form.copyright, {'class':'textfield'}) }}
+        {{ form_errors(form.copyright) }}
+    </li>
+    <li>
         {{ form_label(form.defaultKey, 'Default Key') }}
         {{ form_field(form.defaultKey, {'class':'choice'}) }}
         {{ form_errors(form.defaultKey) }}

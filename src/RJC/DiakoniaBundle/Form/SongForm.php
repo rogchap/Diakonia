@@ -11,6 +11,7 @@ class SongForm extends Form\Form {
 
         $this->add(new Form\TextField('title'));
         $this->add(new Form\TextField('author'));
+        $this->add(new Form\TextField('copyright'));
         $this->add(new Form\ChoiceField('defaultKey', array( 'choices' => array(
             'C' => 'C',
             'C#' => 'C#',

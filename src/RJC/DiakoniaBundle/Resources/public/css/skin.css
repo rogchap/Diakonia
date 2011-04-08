@@ -518,6 +518,12 @@ dl dt {
     background-image: linear-gradient(top, #eeeeee, #e5e5e5);
     }
 
+
+    .section h3 span.option { 
+        float:right; 
+        font-size: 0.8em; 
+}
+
     .section pre {
      font-size:1.6em;
      margin: 15px 0; 

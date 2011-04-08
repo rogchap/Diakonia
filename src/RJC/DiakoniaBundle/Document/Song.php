@@ -20,6 +20,11 @@ class Song {
      */
     protected $author;
 
+    /**
+     * @mongodb:Field(type="string")
+     */
+    protected $copyright;
+
     /** @mongodb:Field(type="string") */
     protected $defaultKey;
 
@@ -41,6 +46,10 @@ class Song {
         return $this->author;
     }
 
+    public function getCopyright(){
+        return $this->copyright;
+    }
+
     public function getDefaultKey(){
         return $this->defaultKey;
     }
@@ -55,8 +64,12 @@ class Song {
         $this->title = $title;
     }
 
-    public function setAUthor($author) {
+    public function setAuthor($author) {
         $this->author = $author;
+    }
+
+    public function setCopyright($copyright) {
+        $this->copyright = $copyright;
     }
 
     public function setDefaultKey($defaultKey) {
